@@ -50,6 +50,6 @@ public class Ranges
                 if (inRange(around = new Coord (x,y)))
                     if (!around.equals(coord))
                         list.add(around);
-        return list;
+         return list;
     }
 }
