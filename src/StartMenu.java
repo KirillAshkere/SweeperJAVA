@@ -20,10 +20,10 @@ public class StartMenu extends JDialog {
                     int cols = Integer.parseInt(textArea1.getText());
                     int rows = Integer.parseInt(textArea2.getText());
                     int bombs = Integer.parseInt(textArea3.getText());
-                    if (cols > 0 && rows > 0 && bombs > 0) {
+                    if (cols > 0 && rows > 0 && bombs > 0 && cols * rows > bombs) {
                         JavaSweeper javaSweeper = new JavaSweeper(cols, rows, bombs);
                         dispose();
-                    } else JOptionPane.showMessageDialog(null, "Введеные параметры неккоректны!");
+                    } else JOptionPane.showMessageDialog(null, "Введеные параметры неккоректны или кол-во бомб больше чем кол-во клеток!");
                 } else JOptionPane.showMessageDialog(null, "Введены не все параметры!");
             }
         });
