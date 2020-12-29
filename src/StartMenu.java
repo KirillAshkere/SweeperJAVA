@@ -11,17 +11,20 @@ public class StartMenu extends JDialog {
 
     public StartMenu() {
         setContentPane(contentPane);
-        //setModal(true);
+
 
         startNewGameButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (textArea1.getText().length() != 0 && textArea2.getText().length() != 0 && textArea3.getText().length() != 0) {
-                    JavaSweeper javaSweeper = new JavaSweeper(Integer.parseInt(textArea1.getText()),
-                            Integer.parseInt(textArea2.getText()),
-                            Integer.parseInt(textArea3.getText()));
-                    dispose();
-                } else JOptionPane.showMessageDialog(null, "Введены не все параметры или введены неккоректно!");
+                    int cols = Integer.parseInt(textArea1.getText());
+                    int rows = Integer.parseInt(textArea2.getText());
+                    int bombs = Integer.parseInt(textArea3.getText());
+                    if (cols > 0 && rows > 0 && bombs > 0) {
+                        JavaSweeper javaSweeper = new JavaSweeper(cols, rows, bombs);
+                        dispose();
+                    } else JOptionPane.showMessageDialog(null, "Введеные параметры неккоректны!");
+                } else JOptionPane.showMessageDialog(null, "Введены не все параметры!");
             }
         });
     }
